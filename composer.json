@@ -1,5 +1,5 @@
 {
-	"name": "betterphp/code-standard",
+	"name": "betterphp/php-code-style",
 	"version": "0.1",
 	"require-dev": {
 		"squizlabs/php_codesniffer": "~2"
