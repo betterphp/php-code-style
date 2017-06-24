@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Betterphp\Sniffs\Commenting;
 
-use PHP_CodeSniffer\Standards\Squiz\Sniffs\FunctionCommentSniff as SquizFunctionCommentSniff;
+use PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting\FunctionCommentSniff as SquizFunctionCommentSniff;
 
-use PHP_CodeSniffer\Sniffs\Tokens;
+use PHP_CodeSniffer\Util\Tokens;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 
