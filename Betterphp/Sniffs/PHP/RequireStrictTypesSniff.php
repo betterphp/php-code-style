@@ -2,12 +2,17 @@
 
 declare(strict_types=1);
 
+namespace Betterphp\Sniffs\PHP;
+
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+
 /**
  * Checks for declare(strict_types=1) in all php files.
  *
  * This only checks for the statemenet existing and not that it has been used correctly
  */
-class Standard_Sniffs_PHP_RequireStrictTypesSniff implements PHP_CodeSniffer_Sniff {
+class RequireStrictTypesSniff implements Sniff {
 
 	public function register() {
 		return [
@@ -15,7 +20,7 @@ class Standard_Sniffs_PHP_RequireStrictTypesSniff implements PHP_CodeSniffer_Sni
 		];
 	}
 
-	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
+	public function process(File $phpcsFile, $stackPtr) {
 		$tokens = $phpcsFile->getTokens();
 
 		$startPos = $phpcsFile->findNext([ T_DECLARE ], $stackPtr + 1);

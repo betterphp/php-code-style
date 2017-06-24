@@ -2,12 +2,20 @@
 
 declare(strict_types=1);
 
+namespace Betterphp\Sniffs\Commenting;
+
+use PHP_CodeSniffer\Standards\Squiz\Sniffs\FunctionCommentSniff as SquizFunctionCommentSniff;
+
+use PHP_CodeSniffer\Sniffs\Tokens;
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+
 /**
  * Parses and verifies the doc comments for functions.
  *
  * Same as the Squiz standard, but skips validation for @inheritDoc comments
  */
-class Standard_Sniffs_Commenting_FunctionCommentSniff extends Squiz_Sniffs_Commenting_FunctionCommentSniff {
+class FunctionCommentSniff extends SquizFunctionCommentSniff {
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
@@ -17,10 +25,10 @@ class Standard_Sniffs_Commenting_FunctionCommentSniff extends Squiz_Sniffs_Comme
 	 *
 	 * @return void
 	 */
-	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
+	public function process(File $phpcsFile, $stackPtr) {
 		$tokens = $phpcsFile->getTokens();
 
-		$find  = PHP_CodeSniffer_Tokens::$methodPrefixes;
+		$find  = Tokens::$methodPrefixes;
 		$find[] = T_WHITESPACE;
 
 		$commentEnd = $phpcsFile->findPrevious($find, ($stackPtr - 1), null, true);
